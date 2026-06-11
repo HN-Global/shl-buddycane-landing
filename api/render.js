@@ -209,6 +209,41 @@ ${floatingButtonHtml}
     }
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
+
+  // 히어로(첫 화면) 실제 노출 측정
+  //  - 페이지 첫 화면이 사용자에게 실제로 보였을 때 1회 발사
+  //  - 백그라운드 탭(로드만 되고 안 본 경우)은 제외
+  (function () {
+    var fired = false;
+    function fireHeroView() {
+      if (fired) return;
+      // 화면이 실제로 보이는 상태일 때만
+      if (document.visibilityState !== 'visible') return;
+      fired = true;
+      if (typeof gtag === 'function') {
+        gtag('event', 'hero_view', { ab_variant: window.SHL_AB_VARIANT });
+      }
+    }
+    function start() {
+      if (document.visibilityState === 'visible') {
+        fireHeroView();
+      } else {
+        // 지금은 백그라운드 -> 사용자가 탭을 보는 순간 발사
+        document.addEventListener('visibilitychange', function onVis() {
+          if (document.visibilityState === 'visible') {
+            document.removeEventListener('visibilitychange', onVis);
+            fireHeroView();
+          }
+        });
+      }
+    }
+    // 첫 페인트 이후 발사 (콘텐츠가 그려진 다음)
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', start);
+    } else {
+      start();
+    }
+  })();
 </script>
 `;
 }
