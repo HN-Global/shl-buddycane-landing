@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "functions": {
+    "api/render.js": { "includeFiles": "{public,partials}/**" },
+    "api/index.js": { "includeFiles": "{public,partials}/**" },
+    "api/a.js": { "includeFiles": "{public,partials}/**" },
+    "api/b.js": { "includeFiles": "{public,partials}/**" }
+  },
+  "routes": [
+    { "src": "/api/order", "dest": "/api/order.js" },
+
+    { "src": "/a/(.+)", "dest": "/a/$1" },
+    { "src": "/b/(.+)", "dest": "/b/$1" },
+
+    { "src": "/a/?$", "dest": "/api/a.js" },
+    { "src": "/b/?$", "dest": "/api/b.js" },
+    { "src": "/?$", "dest": "/api/index.js" }
+  ]
+}
