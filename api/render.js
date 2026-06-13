@@ -191,9 +191,9 @@ ${floatingButtonHtml}
     if (btn) { btn.disabled = false; btn.textContent = btn.dataset.originalText || '주문하기'; }
   }
 
-  // 스크롤 뎁스 (25/50/75)
+  // 스크롤 뎁스 (1=시작/10/25/50/75)
   (function () {
-    var thresholds = [25, 50, 75], fired = {};
+    var thresholds = [1, 10, 25, 50, 75], fired = {};
     function onScroll() {
       var st = window.scrollY || document.documentElement.scrollTop;
       var dh = document.documentElement.scrollHeight - window.innerHeight;
@@ -205,7 +205,7 @@ ${floatingButtonHtml}
           if (typeof gtag === 'function') gtag('event', 'scroll', { percent_scrolled: t, ab_variant: window.SHL_AB_VARIANT });
         }
       });
-      if (fired[25] && fired[50] && fired[75]) window.removeEventListener('scroll', onScroll);
+      if (thresholds.every(function (t) { return fired[t]; })) window.removeEventListener('scroll', onScroll);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
