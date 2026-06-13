@@ -18,7 +18,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* PC Responsive Media Query */
 @media (min-width: 1024px) {
     #mobile-app {
-        max-width: 1200px;
+        max-width: 800px;
         margin: 0 auto;
         box-shadow: 0 0 40px rgba(0,0,0,0.08);
         padding-bottom: 120px;
@@ -30,13 +30,13 @@ img { max-width: 100%; height: auto; display: block; }
     .user-icon svg { width: 32px; height: 32px; }
 
     /* Images */
-    .full-img { width: 100%; max-width: none; }
+    .full-img { width: 100%; max-width: 100%; }
     
     /* Video Highlights */
-    .youtube-iframe { width: 100%; max-width: none; display: block !important; }
+    .youtube-iframe { width: 100%; max-width: 100%; display: block !important; }
 
     /* Floating Button */
-    .floating-buy { max-width: 1200px !important; padding: 20px 40px !important; border-radius: 20px 20px 0 0; box-shadow: 0 -4px 30px rgba(0,0,0,0.08); }
+    .floating-buy { max-width: 800px !important; padding: 20px 40px !important; border-radius: 20px 20px 0 0; box-shadow: 0 -4px 30px rgba(0,0,0,0.08); }
     .floating-buy span:first-child { font-size: 16px !important; }
     .floating-buy span:last-child { font-size: 32px !important; }
     .floating-buy button, .floating-buy a { font-size: 22px !important; max-width: 250px !important; padding: 18px 40px !important; display: flex; align-items: center; justify-content: center; }
@@ -45,3 +45,22 @@ img { max-width: 100%; height: auto; display: block; }
 /* Utilities */
 .text-center { text-align: center; }
 .youtube-iframe { width: 100%; aspect-ratio: 16/9; border: none; margin: 0; display: block; }
+
+/* Image Reset to prevent gaps */
+main.ab-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+main.ab-content img, main.ab-content iframe {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: top;
+}
