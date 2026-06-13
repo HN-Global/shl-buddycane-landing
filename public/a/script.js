@@ -31,6 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 로딩 속도 최적화 1-2: 자체호스팅 영상(video[data-bg]) 지연 로딩 + 자동재생
+    const lazyVideos = document.querySelectorAll('video[data-bg]');
+    function loadVideo(v) {
+        if (v.dataset.loaded) return;
+        v.dataset.loaded = '1';
+        const s = v.querySelector('source[data-src]');
+        if (s) { s.src = s.dataset.src; v.load(); }
+        const p = v.play(); if (p && p.catch) p.catch(function () {});
+    }
+    if ('IntersectionObserver' in window) {
+        let videoObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    loadVideo(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '200px 0px', threshold: 0.01 });
+        lazyVideos.forEach(function (v) { videoObserver.observe(v); });
+    } else {
+        lazyVideos.forEach(loadVideo);
+    }
+
     // 모의 구매하기 함수 (구매 스크립트가 로드되지 않았을 경우 대비)
     if (typeof window.shlBuy !== 'function') {
         window.shlBuy = function() {
