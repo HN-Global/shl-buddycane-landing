@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <base href="/b/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>SHL 버디케인 | 원칙이 설계한 안전 (A/B Test)</title>
+    <meta name="description" content="1.2mm 카본 강재로 설계한 SHL 버디케인.">
+    
+    <!-- 로딩 속도 최적화: 폰트 및 핵심 CSS 프리로드 -->
+    <link rel="preload" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <!-- 로딩 속도 최적화: 최상단 노출 이미지 프리로드 -->
+    <link rel="preload" as="image" href="a_images/1. 표지.png">
+    <link rel="preload" as="image" href="a_images/2.png">
+
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="index_a.css">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+</head>
+<body>
+    <div id="mobile-app">
+        <!-- Top Banner -->
+        <div class="top-banner" style="background-color: #192a48; color: #fff; text-align: center; padding: 12px 20px; font-size: 14px; font-weight: 700; letter-spacing: -0.5px; z-index: 51; position: relative;">
+            SHL 연구소의 기준으로 개발하고 선별합니다
+        </div>
+
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-inner">
+                <div class="logo">SHL</div>
+                <a href="https://shl.ltd/login" class="user-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#192a48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Image Sequence -->
+        <main class="ab-content">
+            <!-- fetchpriority="high"를 통해 가장 먼저 렌더링되게 함 -->
+            <img src="a_images/1. 표지.png" alt="표지" class="full-img" fetchpriority="high">
+            <!-- 1번 영상 (조립/사용 설명) -->
+            <iframe data-src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=0&mute=1&controls=1&modestbranding=1&playsinline=1&origin=https://shl.ltd" class="youtube-iframe" style="width: 100%; aspect-ratio: 1 / 1; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <img src="a_images/2.png" alt="2" class="full-img" fetchpriority="high">
+            
+            <!-- 아래 이미지들은 loading="lazy" decoding="async"를 통해 로딩 속도 최적화 (뷰포트에 다가올 때 로드됨) -->
+            <img src="a_images/3.png" alt="3" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/4.png" alt="4" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/5.png" alt="5" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/6.png" alt="6" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/7.png" alt="7" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/8.png" alt="8" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/9.png" alt="9" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/10.png" alt="10" class="full-img" loading="lazy" decoding="async">
+            <!-- 3번 영상 (360도 회전팁 시뮬레이션 무한반복) -->
+            <iframe data-src="https://www.youtube.com/embed/9MNvhVocdew?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=9MNvhVocdew&playsinline=1&enablejsapi=1&vq=hd1080" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <img src="a_images/11.png" alt="11" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/12.png" alt="12" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/13.png" alt="13" class="full-img" loading="lazy" decoding="async">
+            <!-- 2번 영상 (카본 120kg 지지 무한반복) -->
+            <iframe data-src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=UZhwgSe4D-Q&playsinline=1&enablejsapi=1&vq=hd1080" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- 추가 영상 (지팡이 길이 고정 안 될 때 해결법) -->
+            <iframe data-src="https://www.youtube.com/embed/bTRj1lQA9Wo" class="youtube-iframe" style="width: 100%; aspect-ratio: 16 / 9; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <img src="a_images/14.png" alt="14" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/15.detail6 (반사테이프).png" alt="15" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/16. detail7(손목 스트랩).png" alt="16" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/17. detail8(미끄럼 방지).png" alt="17" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/18. detail9(교체 가능한 싱글팁).png" alt="18" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/19.제품사양.png" alt="19" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/20.png" alt="20" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/21.png" alt="21" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/22.png" alt="22" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/23.png" alt="23" class="full-img" loading="lazy" decoding="async">
+            <img src="a_images/24.png" alt="24" class="full-img" loading="lazy" decoding="async">
+        </main>
+
+        <!-- Floating Buy Button -->
+        <div class="floating-buy" style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; padding: 15px 20px; background: linear-gradient(to top, rgba(255,255,255,1) 80%, rgba(255,255,255,0)); z-index: 100; display: flex; justify-content: space-between; align-items: center; padding-bottom: calc(15px + env(safe-area-inset-bottom));">
+            <div>
+                <span style="font-size: 13px; color: #666; font-weight: 500;">SHL 버디케인</span><br>
+                <span style="font-size: 20px; font-weight: 800; color: #111;">129,000원</span>
+            </div>
+            <!-- 구매 로직을 위해 id와 onclick 속성 유지 -->
+            <button id="shlBuyBtn" onclick="shlBuy()" class="btn btn-solid" style="padding: 12px 30px; border-radius: 30px; font-size: 16px; border: none; cursor: pointer; background-color: #192a48; color: #fff; font-weight: 700;">구매하기</button>
+        </div>
+    </div>
+    
+    <!-- JS는 렌더링을 막지 않도록 defer 속성 사용 -->
+    <script src="index_a.js" defer></script>
+</body>
+</html>
