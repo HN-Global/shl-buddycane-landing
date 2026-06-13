@@ -9,26 +9,115 @@
   ===========================================================
 -->
 <style>
+  /* 폰트 설정 (기존에 폰트가 있다면 제거하셔도 됩니다) */
+  @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
+
   #shlFloatingBar {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 20px; background: #fff; border-top: 1px solid #eee;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    position: fixed; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    z-index: 1000;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    padding: 16px 24px; 
+    
+    /* 고급스러운 Glassmorphism 효과 */
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.08);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: all 0.3s ease;
   }
-  #shlFloatingBar .shl-info .shl-name { font-size: 14px; color: #666; }
-  #shlFloatingBar .shl-info .shl-price { font-size: 20px; font-weight: 800; }
+  
+  #shlFloatingBar .shl-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  #shlFloatingBar .shl-info .shl-name { 
+    font-size: 13px; 
+    font-weight: 600;
+    color: #888; 
+    letter-spacing: -0.3px;
+  }
+  
+  #shlFloatingBar .shl-info .shl-price { 
+    font-size: 22px; 
+    font-weight: 800; 
+    color: #111;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+  
+  #shlFloatingBar .shl-info .shl-price span {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  /* 구매 버튼 스타일 */
   #shlBuyBtn {
-    background: #1a1a2e; color: #fff; border: none;
-    padding: 16px 32px; border-radius: 10px;
-    font-size: 16px; font-weight: 700; cursor: pointer;
+    background: linear-gradient(135deg, #1f1f2e 0%, #0a0a0f 100%);
+    color: #fff; 
+    border: none;
+    padding: 16px 42px; 
+    border-radius: 12px;
+    font-size: 16px; 
+    font-weight: 700; 
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    letter-spacing: -0.5px;
   }
-  #shlBuyBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* 마우스 호버 시 애니메이션 */
+  #shlBuyBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #2d2d42 0%, #151520 100%);
+  }
+
+  /* 클릭 시 애니메이션 */
+  #shlBuyBtn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  #shlBuyBtn:disabled { 
+    background: #e0e0e0;
+    color: #999;
+    box-shadow: none;
+    transform: none;
+    opacity: 0.6; 
+    cursor: not-allowed; 
+  }
+
+  /* PC 환경을 위한 반응형 레이아웃 (가운데 정렬 및 모서리 둥글게) */
+  @media (min-width: 768px) {
+    #shlFloatingBar {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 600px; /* PC페이지 최대 너비에 맞춰 조정 가능 */
+      bottom: 24px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 16px 28px;
+    }
+  }
 </style>
 
 <div id="shlFloatingBar">
   <div class="shl-info">
     <div class="shl-name">SHL 버디케인</div>
-    <div class="shl-price">129,000원</div>
+    <div class="shl-price">129,000<span>원</span></div>
   </div>
   <button id="shlBuyBtn" onclick="shlBuy()">주문하기</button>
 </div>

@@ -1,39 +1,409 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SHL 버디케인 (B)</title>
-  <!-- 같은 폴더의 style.css 참조 (디자이너가 자유롭게 사용) -->
-  <link rel="stylesheet" href="/b/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>SHL 버디케인 | 원칙이 설계한 안전</title>
+    <meta name="description" content="1.2mm 카본 강재로 설계한 SHL 버디케인.">
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="index.css">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
 <body>
-  <!--
-    ===========================================================
-    디자이너 작업 영역 (B 버전)
-    이 폴더(public/b) 안에 html, css, 이미지 전부 자유롭게 넣으세요.
-      - 이 파일(index.html): 콘텐츠
-      - style.css: 스타일
-      - images/ : 이미지 (예: <img src="/b/images/cane.png">)
-    추적 코드와 주문 버튼은 배포 시 자동 주입됩니다.
-    head/body 태그 구조만 정상 유지해 주세요.
-    ===========================================================
-  -->
-  <section class="hero">
-    <p>SENIOR HEALTH LAB · B</p>
-    <h1>원칙이<br>편안한 일상.</h1>
-    <p>(B 버전 콘텐츠 영역)</p>
-  </section>
+    <div id="mobile-app">
+        <!-- Top Banner -->
+        <div class="top-banner" style="background-color: #192a48; color: #fff; text-align: center; padding: 12px 20px; font-size: 14px; font-weight: 700; letter-spacing: -0.5px; z-index: 51; position: relative;">
+            SHL 연구소의 기준으로 개발하고 선별합니다
+        </div>
 
-  <section class="section">
-    <h2>1. 가벼움과 강성</h2>
-    <p>디자이너가 콘텐츠를 채웁니다. 스크롤 측정을 위해 페이지는 충분히 길어야 합니다.</p>
-  </section>
-  <section class="section">
-    <h2>2. 4발 안정 지지대</h2>
-    <p>디자이너가 콘텐츠를 채웁니다.</p>
-  </section>
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-inner">
+                <div class="logo">SHL</div>
+                <a href="https://shl.ltd/login" class="user-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#192a48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+            </div>
+        </header>
+        
+        <!-- Hero -->
+        <section class="sec-hero">
+            <img src="images/hero_1_1.png" alt="Hero" class="full-img">
+        </section>
 
-  <div class="pad-bottom"></div>
+        <!-- Cert Title Image (Media) -->
+        <section class="sec-img-only">
+            <img src="images/21b2b4349ca36.jpg" alt="Media Logos" class="full-img">
+        </section>
+        
+        <!-- Assembly Video -->
+        <section class="sec-video-highlight">
+            <iframe src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=0&mute=1&controls=1&modestbranding=1&playsinline=1&origin=https://shl.ltd" class="youtube-iframe" style="width: 100%; aspect-ratio: 1 / 1; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        
+        <!-- Certs -->
+        <section class="sec-certs" style="background-color: #f9f9f9; color: #111;">
+            <div class="pad-20">
+                <h2 class="text-center" style="font-size: 24px; font-weight: 700; margin-bottom: 20px;">공식 인증 정보</h2>
+                <div class="cert-grid-2x2">
+                    <img src="images/578d1e2c0a072.jpg" alt="KCL">
+                    <img src="images/ad597c29fef91.jpg" alt="Samsung">
+                    <img src="images/4e71ba40b4b6e.jpg" alt="FDA CE ISO">
+                    <img src="images/325a1146c9fd7.jpg" alt="Design">
+                    <img src="images/c2ab96f2a6d90.jpg" alt="KIPO" style="grid-column: span 2;">
+                </div>
+                <details class="cert-dropdown" style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 15px;">
+                    <summary class="text-center" style="font-size: 14px; cursor: pointer; list-style: none; font-weight: 700;">▼ 인증서 직접 조회하기 ▼</summary>
+                    <div class="cert-links" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 15px;">
+                        <a href="https://shl.ltd/kcl-test-report" class="pill-btn">KCL인증서</a>
+                        <a href="https://shl.ltd/ce-declaration" class="pill-btn">CE인증서</a>
+                        <a href="https://shl.ltd/fda-registration" class="pill-btn">FDA</a>
+                        <a href="https://shl.ltd/iso-13485" class="pill-btn">ISO</a>
+                        <a href="https://shl.ltd/design-patent" class="pill-btn">디자인권</a>
+                        <a href="https://shl.ltd/trademark" class="pill-btn">상표권</a>
+                    </div>
+                </details>
+            </div>
+        </section>
+        
+        <!-- Review Image -->
+        <section class="sec-review-img">
+            <img src="images/review.png" alt="Review" class="full-img" style="width: 100%; display: block;">
+        </section>
+
+
+
+        <!-- 3 Systems 9 Principles -->
+        <section class="sec-systems">
+            <div class="pad-20" style="padding-top: 60px;">
+                <p class="brand" style="color: #5fb2bc; font-size: 13px; font-weight: 700; margin-bottom: 8px;">SENIOR HEALTH LAB</p>
+                <h2 style="font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 20px;">3대 시스템,<br>9가지 설계 원칙</h2>
+                <p class="desc" style="font-size: 15px;">SHL 버디케인의 모든 기능을<br>3개의 엔지니어링 시스템으로 설계됩니다.</p>
+            </div>
+        </section>
+
+        <!-- Systems Text Blocks (Stacked) -->
+        <section class="sec-systems-summary" style="background-color: #f4f7f8; padding: 40px 20px;">
+            <div class="sys-block" style="margin-bottom: 50px;">
+                <p class="sys-label" style="color: #5fb2bc; font-size: 14px; font-weight: 700; margin-bottom: 5px;">시스템01</p>
+                <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 20px;">120kg. 카본이 버팁니다.</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>프리미엄 카본</span><span>1</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>이중잠금</span><span>2</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sys-block" style="margin-bottom: 50px;">
+                <p class="sys-label" style="color: #5fb2bc; font-size: 14px; font-weight: 700; margin-bottom: 5px;">시스템02</p>
+                <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 20px;">어떤 바닥에서도,<br class="pc-br">어떤 방향으로도.</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>360°회전팁</span><span>3</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>4발 지지대</span><span>4</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>미끄럼 방지</span><span>5</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>싱글팁</span><span>6</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sys-block">
+                <p class="sys-label" style="color: #5fb2bc; font-size: 14px; font-weight: 700; margin-bottom: 5px;">시스템03</p>
+                <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 20px;">잡는 순간부터 설계입니다.</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>원목 손잡이</span><span>7</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>반사 테이프</span><span>8</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background-color: #fff; padding: 12px 18px; border-radius: 25px; font-size: 14px; color: #555; font-weight: 600;">
+                        <span>손목 스트랩</span><span>9</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registered Design -->
+        <section class="sec-design" style="padding: 40px 20px; background-color: #fff; position: relative; overflow: hidden; min-height: 240px;">
+            <div style="position: relative; z-index: 2; max-width: 65%;">
+                <p style="color: #65b1b9; font-size: 13px; font-weight: 400; margin-bottom: 5px;">REGISTERED DESIGN</p>
+                <h3 style="font-size: 26px; font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; color: #000; white-space: nowrap;">SHL이 직접 설계했습니다.</h3>
+                <p style="font-size: 14px; color: #555; line-height: 1.5; letter-spacing: -0.5px; margin-bottom: 25px; font-weight: 400;">이 형태는 처음부터 SHL이 만든 것입니다.<br>그 설계를 디자인권으로 보호받고 있습니다.</p>
+                
+                <div style="display: flex; align-items: center;">
+                    <div style="border: 1px solid #88c8d0; border-right: none; border-radius: 20px 0 0 20px; padding: 6px 10px 6px 12px; font-size: 11px; color: #666; font-weight: 500;">
+                        디자인권 등록 완료
+                    </div>
+                    <div style="width: 1px; height: 26px; background-color: #e0e0e0; z-index: 2;"></div>
+                    <div style="border: 1px solid #e0e0e0; border-left: none; border-radius: 0 20px 20px 0; padding: 6px 12px 6px 10px; font-size: 11px; color: #999; font-weight: 400;">
+                        상표권 출원 중
+                    </div>
+                </div>
+            </div>
+            <div style="position: absolute; right: -5px; top: 50%; transform: translateY(-50%); width: 135px; z-index: 1;">
+                <img src="images/Design.png" alt="Certificate" style="width: 100%; display: block; mix-blend-mode: multiply;">
+            </div>
+        </section>
+
+        <!-- Media Image -->
+        <section class="sec-media-img sec-img-only">
+            <img src="images/media.png" alt="Media" class="full-img">
+        </section>
+
+        <!-- New System 01 Detailed Design (Black Theme) -->
+        <section class="sec-systems-black" style="background-color: #111; color: #fff; padding: 40px 20px;">
+            <p class="sys-label" style="color: #5fb2bc; font-size: 14px; font-weight: 700; margin-bottom: 20px;">시스템01</p>
+            <h2 style="font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 5px;">카본이 버팁니다.</h2>
+            <h2 style="font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 30px;">120kg.</h2>
+            
+            <p style="font-size: 14px; color: #ddd; margin-bottom: 5px; letter-spacing: -0.5px;">초경량 고강성 탄소섬유 샤프트</p>
+            <p style="font-size: 14px; color: #ddd; margin-bottom: 5px; letter-spacing: -0.5px;">120kg을 지지하는 0.1mm의 유격 없는 이중잠금 체결.</p>
+            <p style="font-size: 14px; color: #ddd; margin-bottom: 30px; letter-spacing: -0.5px;">가볍고, 무너지지 않습니다.</p>
+            
+            <div style="margin: 0 -20px;">
+                <img src="images/ba5ef29fdbcd4.jpg" alt="Carbon Texture" style="width: 100%; display: block;">
+            </div>
+            
+            <div style="margin-top: 30px; padding-bottom: 10px;">
+                <h4 style="color: #5fb2bc; font-size: 20px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 12px;">1. 황금비율 프리미엄 카본 샤프트</h4>
+                <p style="font-size: 15px; color: #fff; font-weight: 500; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 2px;">알루미늄 대비 약 30~40% 가볍고,</p>
+                <p style="font-size: 15px; color: #fff; font-weight: 500; line-height: 1.6; letter-spacing: -0.5px;">2배 이상의 강도와 7배의 탄성을 갖춘 설계.</p>
+            </div>
+            
+            <div style="margin: 30px -20px 0;">
+                <iframe style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none;" src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=UZhwgSe4D-Q&playsinline=1&enablejsapi=1&vq=hd1080" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
+            <div style="margin-top: 40px; padding-bottom: 20px;">
+                <h4 style="color: #5fb2bc; font-size: 20px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 12px;">2. 정밀 이중잠금 체결</h4>
+                <p style="font-size: 15px; color: #fff; font-weight: 500; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 2px;">원하는 높이에 정밀하게 조절되어 안정적인 보행 지원.</p>
+            </div>
+        </section>
+
+        <!-- Systems Detail Blocks (Body images) -->
+        <section class="sec-systems-sys02" style="background-color: #f8f9fa; padding: 40px 20px;">
+            <p class="sys-label" style="color: #5fb2bc; font-size: 14px; font-weight: 700; margin-bottom: 15px;">시스템02</p>
+            <h2 style="font-size: 26px; font-weight: 800; line-height: 1.3; letter-spacing: -1px; margin-bottom: 25px; color: #111;">어떤 바닥에서도,<br>어떤 방향으로도.</h2>
+            
+            <div style="margin-bottom: 40px;">
+                <p style="font-size: 15px; color: #555; font-weight: 500; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 2px;">4발로 서고, 360도로 밀착됩니다.</p>
+                <p style="font-size: 15px; color: #555; font-weight: 500; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 2px;">바닥 재질과 경사가 달라져도</p>
+                <p style="font-size: 15px; color: #555; font-weight: 500; line-height: 1.6; letter-spacing: -0.5px;">팁이 사용자 방향으로 회전하며 지면에 밀착됩니다.</p>
+            </div>
+            
+            <div style="margin: 0 -20px;">
+                <iframe style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none;" src="https://www.youtube.com/embed/9MNvhVocdew?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=9MNvhVocdew&playsinline=1&enablejsapi=1&vq=hd1080" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section style="background-color: #f8f9fa; padding: 40px 20px 20px;">
+            <h3 style="color: #5fb2bc; font-size: 22px; font-weight: 500; letter-spacing: -0.5px; margin-bottom: 15px;">3. 360도 회전팁</h3>
+            <p style="font-size: 15px; color: #555; font-weight: 500; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 2px;">사용자 방향으로 꺾여 지면에 밀착되는 각도 시뮬레이션 설계.</p>
+            <p style="font-size: 15px; color: #555; font-weight: 500; line-height: 1.6; letter-spacing: -0.5px;">대리석·비탈길·젖은·노면 모두 대응.</p>
+        </section>
+
+        <section style="background-color: #fff; padding: 20px 20px 40px 20px;">
+            <img src="images/fd55cc7446045.jpg" alt="360 Rotation Tip Comparison" style="width: 100%; display: block;">
+
+            <div style="display: flex; gap: 10px; margin-top: 10px; padding: 0 10px;">
+                <div style="flex: 1; background-color: #5fb2bc; color: #fff; padding: 8px 0; border-radius: 20px; text-align: center; font-size: 14px; font-weight: 600; letter-spacing: -0.5px;">안정 밀착</div>
+                <div style="flex: 1; background-color: #777777; color: #fff; padding: 8px 0; border-radius: 20px; text-align: center; font-size: 14px; font-weight: 600; letter-spacing: -0.5px;">불안정</div>
+            </div>
+        </section>
+
+        <section style="background-color: #f8f9fa; padding: 30px 20px;">
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #5fb2bc; font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px;">4. 4발 지지대</h4>
+                <p style="font-size: 15px; color: #333; line-height: 1.5; font-weight: 500; letter-spacing: -0.5px;">지팡이 스스로 서있는 구조.</p>
+            </div>
+            <div style="height: 1px; background-color: #ddd; margin-bottom: 20px;"></div>
+            
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #5fb2bc; font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px;">5. 미끄럼 방지 코팅</h4>
+                <p style="font-size: 15px; color: #333; line-height: 1.5; font-weight: 500; letter-spacing: -0.5px;">빗길에도 미끄러지지 않는 미끄럼방지 코팅.</p>
+            </div>
+            <div style="height: 1px; background-color: #ddd; margin-bottom: 20px;"></div>
+
+            <div style="margin-bottom: 20px;">
+                <h4 style="color: #5fb2bc; font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px;">6. 교체형 싱글팁</h4>
+                <p style="font-size: 15px; color: #333; line-height: 1.5; font-weight: 500; letter-spacing: -0.5px;">가벼운 실내외 보행용. 4발 지지대와 호환.</p>
+            </div>
+            <div style="border-bottom: 1px dotted #888; margin-bottom: 10px;"></div>
+        </section>
+
+        <section class="sec-systems-sys03" style="background-color: #111; color: #fff; padding: 40px 20px 0;">
+            <p style="color: #5fb2bc; font-size: 14px; font-weight: 700; margin-bottom: 20px;">시스템03</p>
+            <h2 style="font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 25px; letter-spacing: -1px;">잡는 순간부터<br>설계입니다.</h2>
+            <p style="font-size: 15px; color: #ddd; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 5px; font-weight: 500;">손잡이 곡률부터 야간 시인성까지.</p>
+            <p style="font-size: 15px; color: #ddd; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 30px; font-weight: 500;">사람이 닿는 모든 접점에 설계 원칙이 있습니다.</p>
+            <div style="margin: 0 -20px;">
+                <img src="images/49c7718150b68.jpg" alt="Grip" style="width: 100%; display: block;">
+            </div>
+
+            <div style="padding: 30px 0 10px;">
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #5fb2bc; font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px;">7. 다크우드 손잡이</h4>
+                    <p style="font-size: 15px; color: #ddd; line-height: 1.5; font-weight: 500; letter-spacing: -0.5px;">장시간 보행 시 손목 부담 저감. 인체 공학적 곡률 설계로 손바닥 피로 방지.</p>
+                </div>
+                <div style="height: 1px; background-color: #333; margin-bottom: 20px;"></div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #5fb2bc; font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px;">8. 손목 스트랩</h4>
+                    <p style="font-size: 15px; color: #ddd; line-height: 1.5; font-weight: 500; letter-spacing: -0.5px;">보행 중 낙하 방지 및 휴대 편의성. 조절 가능한 스트랩.</p>
+                </div>
+                <div style="height: 1px; background-color: #333; margin-bottom: 20px;"></div>
+
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #5fb2bc; font-size: 22px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px;">9. 반사 야간테이프</h4>
+                    <p style="font-size: 15px; color: #ddd; line-height: 1.5; font-weight: 500; letter-spacing: -0.5px;">눈높이 빛 반사 설계로 밤길 보행 안전 지원.</p>
+                </div>
+                <div style="border-bottom: 1px dotted #555; margin-bottom: 20px;"></div>
+            </div>
+        </section>
+
+        <!-- Verification Protocol -->
+        <section class="sec-protocol pad-20" style="padding-bottom: 40px; background-color: #fafbfc; overflow: hidden;">
+            <p style="color: #5fb2bc; font-size: 13px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px;">VERIFICATION PROTOCOL</p>
+            <h3 style="font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 20px; letter-spacing: -1px; color: #111;">5개 전문 영역의<br>검증을 완료했습니다.</h3>
+            <p class="desc" style="font-size: 15px; color: #666; font-weight: 500; letter-spacing: -0.5px;">SHL 버디케인의 개발 프로토콜입니다.</p>
+            
+            <!-- Horizontal Carousel -->
+            <div class="protocol-carousel" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 15px; padding: 30px 0 10px; scroll-snap-type: x mandatory; margin-top: 5px; -webkit-overflow-scrolling: touch; padding-left: 20px; padding-right: 20px; width: calc(100% + 40px); margin-left: -20px;">
+                
+                <div class="card" style="flex: 0 0 280px; scroll-snap-align: center; border-radius: 40px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <img src="images/ai_senior.jpg" alt="최종 검증" style="width: 100%; display: block; border-radius: 40px;">
+                </div>
+
+                <div class="card" style="flex: 0 0 280px; scroll-snap-align: center; border-radius: 40px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <img src="images/ai_caregiver.jpg" alt="요양보호사" style="width: 100%; display: block; border-radius: 40px;">
+                </div>
+
+                <div class="card" style="flex: 0 0 280px; scroll-snap-align: center; border-radius: 40px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <img src="images/ai_social_worker.jpg" alt="사회복지사" style="width: 100%; display: block; border-radius: 40px;">
+                </div>
+
+                <div class="card" style="flex: 0 0 280px; scroll-snap-align: center; border-radius: 40px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <img src="images/ai_researcher.jpg" alt="소재연구원" style="width: 100%; display: block; border-radius: 40px;">
+                </div>
+
+                <div class="card" style="flex: 0 0 280px; scroll-snap-align: center; border-radius: 40px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                    <img src="images/ai_engineer.jpg" alt="구조연구원" style="width: 100%; display: block; border-radius: 40px;">
+                </div>
+
+            </div>
+            
+            <style>
+                .protocol-carousel::-webkit-scrollbar {
+                    height: 6px;
+                }
+                .protocol-carousel::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                .protocol-carousel::-webkit-scrollbar-thumb {
+                    background: #ccc;
+                    border-radius: 10px;
+                }
+                .protocol-carousel {
+                    scrollbar-width: thin;
+                    scrollbar-color: #ccc transparent;
+                }
+            </style>
+        </section>
+
+        <!-- Complete Set -->
+        <section class="sec-set" style="position: relative; text-align: left; background-color: #eaeff2;">
+            <div style="position: absolute; top: 40px; left: 20px; z-index: 2;">
+                <p style="color: #65b1b9; font-size: 13px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px;">COMPLETE SET</p>
+                <h3 style="font-size: 24px; font-weight: 800; line-height: 1.4; color: #111; letter-spacing: -1px;">버디케인 본품부터 교체용<br>싱글팁까지 함께 제공됩니다.</h3>
+            </div>
+            <img src="images/059b5ae211b41.jpg" alt="Complete Set" class="full-img" style="width: 100%; display: block; mix-blend-mode: multiply;">
+        </section>
+
+        <!-- Specs & Insurance -->
+        <section class="sec-specs pad-20">
+            <h3>인증 및 사양</h3>
+            <p class="desc mb-20">제3자 인증 수치와 설계 명세를 분리해 공개합니다.</p>
+            
+            <div style="background-color: #fafbfc; margin-bottom: 20px;">
+                <div style="background-color: #192a48; color: #fff; padding: 12px 20px; font-weight: 700; font-size: 15px; letter-spacing: -0.5px;">제3자가 검증한 수치입니다.</div>
+                <div style="padding: 25px 20px;">
+                    <div style="margin-bottom: 30px;">
+                        <p style="color: #65b1b9; font-size: 15px; font-weight: 500; margin-bottom: 5px; letter-spacing: -0.5px;">최대 사용 체중</p>
+                        <p style="font-size: 24px; font-weight: 800; color: #111; margin-bottom: 5px; line-height: 1;">120kg</p>
+                        <p style="font-size: 14px; color: #888; font-weight: 500; letter-spacing: -0.5px;">KCL 안전기준 부속서 11합격</p>
+                    </div>
+                    <div style="margin-bottom: 30px;">
+                        <p style="color: #65b1b9; font-size: 15px; font-weight: 500; margin-bottom: 5px; letter-spacing: -0.5px;">소재 규격</p>
+                        <p style="font-size: 24px; font-weight: 800; color: #111; margin-bottom: 5px; line-height: 1;">카본</p>
+                        <p style="font-size: 14px; color: #888; font-weight: 500; letter-spacing: -0.5px;">FDA·CE 준거</p>
+                    </div>
+                    <div>
+                        <p style="color: #65b1b9; font-size: 15px; font-weight: 500; margin-bottom: 5px; letter-spacing: -0.5px;">인증 기관</p>
+                        <p style="font-size: 24px; font-weight: 800; color: #111; margin-bottom: 5px; line-height: 1;">KCL</p>
+                        <p style="font-size: 14px; color: #888; font-weight: 500; letter-spacing: -0.5px;">한국건설생활환경시험연구원</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background-color: #fafbfc; margin-bottom: 30px;">
+                <div style="background-color: #192a48; color: #fff; padding: 12px 20px; font-weight: 700; font-size: 15px; letter-spacing: -0.5px;">설계 명세입니다.</div>
+                <div style="padding: 25px 20px;">
+                    <div style="margin-bottom: 30px;">
+                        <p style="color: #65b1b9; font-size: 15px; font-weight: 500; margin-bottom: 5px; letter-spacing: -0.5px;">샤프트 벽두께</p>
+                        <p style="font-size: 24px; font-weight: 800; color: #111; margin-bottom: 5px; line-height: 1;">1.2mm</p>
+                    </div>
+                    <div style="margin-bottom: 30px;">
+                        <p style="color: #65b1b9; font-size: 15px; font-weight: 500; margin-bottom: 5px; letter-spacing: -0.5px;">무게</p>
+                        <p style="font-size: 24px; font-weight: 800; color: #111; margin-bottom: 5px; line-height: 1;">246g</p>
+                        <p style="font-size: 14px; color: #888; font-weight: 500; letter-spacing: -0.5px;">싱글팁 기준</p>
+                    </div>
+                    <div>
+                        <p style="color: #65b1b9; font-size: 15px; font-weight: 500; margin-bottom: 5px; letter-spacing: -0.5px;">팁 구성</p>
+                        <p style="font-size: 24px; font-weight: 800; color: #111; margin-bottom: 5px; line-height: 1;">4발 지지대</p>
+                        <p style="font-size: 14px; color: #888; font-weight: 500; letter-spacing: -0.5px;">교체형 싱글팁 포함</p>
+                    </div>
+                </div>
+            </div>
+
+            <img src="images/insurance.png" alt="Insurance" class="full-img" style="border-radius: 8px; margin-bottom: 30px;">
+        </section>
+
+        <!-- CTA -->
+        <section class="sec-cta bg-gray pad-20 text-center" style="padding-bottom: 100px;">
+            <h3>잘 만든 것에는 이유가 있습니다.</h3>
+            <p class="desc mb-20">SHL 버디케인</p>
+            <h2 style="color: #111; font-size: 28px; font-weight: 800; margin-bottom: 20px;">129,000원</h2>
+            <img src="images/8635670d903cb.jpg" alt="Product" class="full-img mb-20" style="border-radius: 8px;">
+            
+            <div class="btn-group flex-center" style="gap: 10px;">
+                <a href="tel:010-5675-0954" class="btn btn-outline">전화문의</a>
+                <a href="https://shl.ltd/shop_view/?idx=3" class="btn btn-solid">구매하기</a>
+            </div>
+        </section>
+
+
+        
+        <!-- Floating Button -->
+        <div class="floating-buy" style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: #fff; padding: 15px 20px; box-shadow: 0 -4px 20px rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-sizing: border-box; border-top: 1px solid #f0f0f0;">
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <span style="font-size: 13px; color: #88939e; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 2px;">SHL 버디케인</span>
+                <span style="font-size: 22px; color: #0d1b2a; font-weight: 800; letter-spacing: -0.5px; line-height: 1;">129,000원</span>
+            </div>
+            <a href="https://shl.ltd/shop_view/?idx=3" style="background: linear-gradient(to right, #8ed1d4, #61b1be); color: #fff; padding: 14px 40px; border-radius: 30px; font-weight: 800; font-size: 16px; text-decoration: none; display: flex; align-items: center; justify-content: center; flex: 1; max-width: 180px; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">구매하기</a>
+        </div>
+    </div>
 </body>
 </html>
