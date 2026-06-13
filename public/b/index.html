@@ -10,7 +10,8 @@
     <meta name="description" content="1.2mm 카본 강재로 설계한 SHL 버디케인.">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" /></noscript>
     <link rel="stylesheet" href="index.css">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
@@ -25,12 +26,6 @@
         <header class="main-header">
             <div class="header-inner">
                 <div class="logo">SHL</div>
-                <a href="https://shl.ltd/login" class="user-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#192a48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </a>
             </div>
         </header>
         
@@ -46,7 +41,7 @@
         
         <!-- Assembly Video (자체호스팅: 무음 자동재생+반복, 소리 켜기 버튼) -->
         <section class="sec-video-highlight" style="position: relative;">
-            <video id="heroVideo" data-bg autoplay muted loop playsinline controls preload="none" poster="videos/assembly_poster.webp" width="720" height="720" style="width: 100%; aspect-ratio: 1 / 1; display: block; background: #000;">
+            <video id="heroVideo" data-bg autoplay muted loop playsinline controls preload="none" poster="videos/assembly_poster.webp" width="720" height="720" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #000;">
                 <source data-src="videos/assembly.mp4" type="video/mp4">
             </video>
             <button id="heroUnmute" type="button" onclick="shlUnmute()" aria-label="소리 켜기" style="position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 30px; padding: 9px 16px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);">🔊 소리 켜기</button>
@@ -66,12 +61,12 @@
                 <details class="cert-dropdown" style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 15px;">
                     <summary class="text-center" style="font-size: 14px; cursor: pointer; list-style: none; font-weight: 700;">▼ 인증서 직접 조회하기 ▼</summary>
                     <div class="cert-links" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 15px;">
-                        <a href="https://shl.ltd/kcl-test-report" class="pill-btn">KCL인증서</a>
-                        <a href="https://shl.ltd/ce-declaration" class="pill-btn">CE인증서</a>
-                        <a href="https://shl.ltd/fda-registration" class="pill-btn">FDA</a>
-                        <a href="https://shl.ltd/iso-13485" class="pill-btn">ISO</a>
-                        <a href="https://shl.ltd/design-patent" class="pill-btn">디자인권</a>
-                        <a href="https://shl.ltd/trademark" class="pill-btn">상표권</a>
+                        <a href="https://shl.ltd/kcl-test-report" class="pill-btn" target="_blank" rel="noopener">KCL인증서</a>
+                        <a href="https://shl.ltd/ce-declaration" class="pill-btn" target="_blank" rel="noopener">CE인증서</a>
+                        <a href="https://shl.ltd/fda-registration" class="pill-btn" target="_blank" rel="noopener">FDA</a>
+                        <a href="https://shl.ltd/iso-13485" class="pill-btn" target="_blank" rel="noopener">ISO</a>
+                        <a href="https://shl.ltd/design-patent" class="pill-btn" target="_blank" rel="noopener">디자인권</a>
+                        <a href="https://shl.ltd/trademark" class="pill-btn" target="_blank" rel="noopener">상표권</a>
                     </div>
                 </details>
             </div>
@@ -168,7 +163,7 @@
 
         <!-- Media Image -->
         <section class="sec-media-img sec-img-only">
-            <img src="images/media.png" alt="Media" class="full-img" width="860" height="964" loading="lazy" decoding="async">
+            <img src="images/media.webp" alt="Media" class="full-img" width="860" height="964" loading="lazy" decoding="async">
         </section>
 
         <!-- New System 01 Detailed Design (Black Theme) -->
