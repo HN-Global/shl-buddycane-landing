@@ -39,7 +39,7 @@ img { max-width: 100%; height: auto; display: block; }
     .floating-buy { max-width: 1200px !important; padding: 20px 40px !important; border-radius: 20px 20px 0 0; box-shadow: 0 -4px 30px rgba(0,0,0,0.08); }
     .floating-buy span:first-child { font-size: 16px !important; }
     .floating-buy span:last-child { font-size: 32px !important; }
-    .floating-buy button { font-size: 22px !important; max-width: 250px !important; padding: 18px 40px !important; }
+    .floating-buy button, .floating-buy a { font-size: 22px !important; max-width: 250px !important; padding: 18px 40px !important; display: flex; align-items: center; justify-content: center; }
 }
 
 /* Utilities */

@@ -1,4 +1,4 @@
-/* index_a.js - Interactive Scripts and Performance Optimizations for A/B Test Landing Page */
+/* script.js - Interactive Scripts and Performance Optimizations for A/B Test Landing Page */
 
 document.addEventListener('DOMContentLoaded', () => {
     // 로딩 속도 최적화 1: YouTube iframe 지연 로딩
@@ -36,5 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
         window.shlBuy = function() {
             window.location.href = 'https://shl.ltd/shop_view/?idx=3';
         };
+    }
+
+    // 동적으로 partials/floating-button.html을 불러오는 로직 (개발 및 테스트 용도)
+    // 실제 서버 환경에서는 서버사이드 인클루드를 사용하는 것이 좋습니다.
+    const floatingContainer = document.getElementById('floating-button-container');
+    if (floatingContainer) {
+        fetch('/partials/floating-button.html')
+            .then(response => {
+                if (response.ok) return response.text();
+                throw new Error('Network response was not ok.');
+            })
+            .then(html => {
+                floatingContainer.innerHTML = html;
+            })
+            .catch(error => console.error('Error loading floating button:', error));
     }
 });
