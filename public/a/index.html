@@ -7,13 +7,85 @@
     <meta name="description" content="1.2mm 카본 강재로 설계한 SHL 버디케인.">
     
     <!-- 로딩 속도 최적화: 폰트 및 핵심 CSS 프리로드 -->
-    <link rel="preload" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="preload" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <!-- 로딩 속도 최적화: 최상단 노출 이미지 프리로드 -->
-    <link rel="preload" as="image" href="/a/images/1. 표지.png">
-    <link rel="preload" as="image" href="/a/images/2.png">
+    <link rel="preload" as="image" href="/a/images/1. 표지.webp">
+    <link rel="preload" as="image" href="/a/images/2.webp">
 
-    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-    <link rel="stylesheet" href="/a/style.css">
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    </noscript>
+    
+    <!-- 인라인 CSS로 렌더링 차단 방지 -->
+    <style>
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', -apple-system, sans-serif; line-height: 1.5; color: #111; background-color: #f5f5f5; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* Mobile Container */
+        #mobile-app { max-width: 480px; margin: 0 auto; background-color: #fff; min-height: 100vh; position: relative; overflow-x: hidden; padding-bottom: 80px; } /* 하단 구매버튼 영역 여백 */
+
+        /* Header */
+        .main-header { height: 60px; border-bottom: none; background: transparent; position: relative; z-index: 50; }
+        .header-inner { display: flex; justify-content: center; align-items: center; height: 100%; padding: 0 20px; position: relative; }
+        .logo { font-size: 20px; font-weight: 900; letter-spacing: -1px; color: #192a48; }
+        .user-icon { position: absolute; right: 20px; }
+
+        /* Image classes */
+        .full-img { width: 100%; display: block; margin: 0; }
+
+        /* PC Responsive Media Query */
+        @media (min-width: 1024px) {
+            #mobile-app {
+                max-width: 800px;
+                margin: 0 auto;
+                box-shadow: 0 0 40px rgba(0,0,0,0.08);
+                padding-bottom: 120px;
+            }
+
+            /* Header */
+            .main-header { height: 80px; }
+            .logo { font-size: 28px; }
+            .user-icon svg { width: 32px; height: 32px; }
+
+            /* Images */
+            .full-img { width: 100%; max-width: 100%; }
+            
+            /* Video Highlights */
+            .youtube-iframe { width: 100%; max-width: 100%; display: block !important; }
+
+            /* Floating Button */
+            .floating-buy { max-width: 800px !important; padding: 20px 40px !important; border-radius: 20px 20px 0 0; box-shadow: 0 -4px 30px rgba(0,0,0,0.08); }
+            .floating-buy span:first-child { font-size: 16px !important; }
+            .floating-buy span:last-child { font-size: 32px !important; }
+            .floating-buy button, .floating-buy a { font-size: 22px !important; max-width: 250px !important; padding: 18px 40px !important; display: flex; align-items: center; justify-content: center; }
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .youtube-iframe { width: 100%; aspect-ratio: 16/9; border: none; margin: 0; display: block; }
+
+        /* Image Reset to prevent gaps */
+        main.ab-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        main.ab-content img, main.ab-content iframe {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+            margin: 0;
+            padding: 0;
+            border: none;
+            vertical-align: top;
+        }
+    </style>
     <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
 <body>
@@ -39,40 +111,40 @@
         <!-- Main Image Sequence -->
         <main class="ab-content">
             <!-- fetchpriority="high"를 통해 가장 먼저 렌더링되게 함 -->
-            <img src="/a/images/1. 표지.png" alt="표지" class="full-img" fetchpriority="high">
+            <img src="/a/images/1. 표지.webp" alt="표지" class="full-img" fetchpriority="high" width="860" height="2374">
             <!-- 1번 영상 (조립/사용 설명) -->
-            <iframe data-src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=0&mute=1&controls=1&modestbranding=1&playsinline=1&origin=https://shl.ltd" class="youtube-iframe" style="width: 100%; aspect-ratio: 1 / 1; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <img src="/a/images/2.png" alt="2" class="full-img" fetchpriority="high">
+            <iframe data-src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=0&mute=1&controls=1&modestbranding=1&playsinline=1&origin=https://shl.ltd" class="youtube-iframe" style="width: 100%; aspect-ratio: 1 / 1; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="860" height="860"></iframe>
+            <img src="/a/images/2.webp" alt="2" class="full-img" fetchpriority="high" width="860" height="2858">
             
             <!-- 아래 이미지들은 loading="lazy" decoding="async"를 통해 로딩 속도 최적화 (뷰포트에 다가올 때 로드됨) -->
-            <img src="/a/images/3.png" alt="3" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/4.png" alt="4" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/5.png" alt="5" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/6.png" alt="6" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/7.png" alt="7" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/8.png" alt="8" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/9.png" alt="9" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/10.png" alt="10" class="full-img" loading="lazy" decoding="async">
+            <img src="/a/images/3.webp" alt="3" class="full-img" loading="lazy" decoding="async" width="780" height="3859">
+            <img src="/a/images/4.webp" alt="4" class="full-img" loading="lazy" decoding="async" width="860" height="2203">
+            <img src="/a/images/5.webp" alt="5" class="full-img" loading="lazy" decoding="async" width="860" height="1503">
+            <img src="/a/images/6.webp" alt="6" class="full-img" loading="lazy" decoding="async" width="860" height="1696">
+            <img src="/a/images/7.webp" alt="7" class="full-img" loading="lazy" decoding="async" width="860" height="2534">
+            <img src="/a/images/8.webp" alt="8" class="full-img" loading="lazy" decoding="async" width="860" height="3454">
+            <img src="/a/images/9.webp" alt="9" class="full-img" loading="lazy" decoding="async" width="860" height="4914">
+            <img src="/a/images/10.webp" alt="10" class="full-img" loading="lazy" decoding="async" width="860" height="2464">
             <!-- 3번 영상 (360도 회전팁 시뮬레이션 무한반복) -->
-            <iframe data-src="https://www.youtube.com/embed/9MNvhVocdew?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=9MNvhVocdew&playsinline=1&enablejsapi=1&vq=hd1080" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <img src="/a/images/11.png" alt="11" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/12.png" alt="12" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/13.png" alt="13" class="full-img" loading="lazy" decoding="async">
+            <iframe data-src="https://www.youtube.com/embed/9MNvhVocdew?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=9MNvhVocdew&playsinline=1&enablejsapi=1&vq=hd1080" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="860" height="860"></iframe>
+            <img src="/a/images/11.webp" alt="11" class="full-img" loading="lazy" decoding="async" width="860" height="2249">
+            <img src="/a/images/12.webp" alt="12" class="full-img" loading="lazy" decoding="async" width="860" height="2890">
+            <img src="/a/images/13.webp" alt="13" class="full-img" loading="lazy" decoding="async" width="860" height="2992">
             <!-- 2번 영상 (카본 120kg 지지 무한반복) -->
-            <iframe data-src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=UZhwgSe4D-Q&playsinline=1&enablejsapi=1&vq=hd1080" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe data-src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=UZhwgSe4D-Q&playsinline=1&enablejsapi=1&vq=hd1080" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="860" height="860"></iframe>
             <!-- 추가 영상 (지팡이 길이 고정 안 될 때 해결법) -->
-            <iframe data-src="https://www.youtube.com/embed/bTRj1lQA9Wo" class="youtube-iframe" style="width: 100%; aspect-ratio: 16 / 9; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <img src="/a/images/14.png" alt="14" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/15.detail6 (반사테이프).png" alt="15" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/16. detail7(손목 스트랩).png" alt="16" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/17. detail8(미끄럼 방지).png" alt="17" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/18. detail9(교체 가능한 싱글팁).png" alt="18" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/19.제품사양.png" alt="19" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/20.png" alt="20" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/21.png" alt="21" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/22.png" alt="22" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/23.png" alt="23" class="full-img" loading="lazy" decoding="async">
-            <img src="/a/images/24.png" alt="24" class="full-img" loading="lazy" decoding="async">
+            <iframe data-src="https://www.youtube.com/embed/bTRj1lQA9Wo" class="youtube-iframe" style="width: 100%; aspect-ratio: 16 / 9; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="860" height="484"></iframe>
+            <img src="/a/images/14.webp" alt="14" class="full-img" loading="lazy" decoding="async" width="860" height="553">
+            <img src="/a/images/15.detail6 (반사테이프).webp" alt="15" class="full-img" loading="lazy" decoding="async" width="860" height="1779">
+            <img src="/a/images/16. detail7(손목 스트랩).webp" alt="16" class="full-img" loading="lazy" decoding="async" width="860" height="1478">
+            <img src="/a/images/17. detail8(미끄럼 방지).webp" alt="17" class="full-img" loading="lazy" decoding="async" width="860" height="1692">
+            <img src="/a/images/18. detail9(교체 가능한 싱글팁).webp" alt="18" class="full-img" loading="lazy" decoding="async" width="860" height="2922">
+            <img src="/a/images/19.제품사양.webp" alt="19" class="full-img" loading="lazy" decoding="async" width="860" height="3686">
+            <img src="/a/images/20.webp" alt="20" class="full-img" loading="lazy" decoding="async" width="860" height="887">
+            <img src="/a/images/21.webp" alt="21" class="full-img" loading="lazy" decoding="async" width="860" height="2715">
+            <img src="/a/images/22.webp" alt="22" class="full-img" loading="lazy" decoding="async" width="860" height="1391">
+            <img src="/a/images/23.webp" alt="23" class="full-img" loading="lazy" decoding="async" width="860" height="996">
+            <img src="/a/images/24.webp" alt="24" class="full-img" loading="lazy" decoding="async" width="860" height="808">
         </main>
 
         <!-- Floating Buy Button Area -->
