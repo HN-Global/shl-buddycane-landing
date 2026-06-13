@@ -9,8 +9,8 @@
   "routes": [
     { "src": "/api/order", "dest": "/api/order.js" },
 
-    { "src": "/a/images/(.+)", "dest": "/a/images/$1", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
-    { "src": "/b/images/(.+)", "dest": "/b/images/$1", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+    { "src": "/a/(images|videos)/(.+)", "dest": "/a/$1/$2", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
+    { "src": "/b/(images|videos)/(.+)", "dest": "/b/$1/$2", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
 
     { "src": "/a/(.+)", "dest": "/a/$1" },
     { "src": "/b/(.+)", "dest": "/b/$1" },
