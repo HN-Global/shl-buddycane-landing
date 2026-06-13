@@ -5,8 +5,6 @@
     <base href="/b/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://www.youtube.com">
-    <link rel="preconnect" href="https://i.ytimg.com">
     <link rel="preload" as="image" href="images/hero_1_1.webp" fetchpriority="high">
     <title>SHL 버디케인 | 원칙이 설계한 안전</title>
     <meta name="description" content="1.2mm 카본 강재로 설계한 SHL 버디케인.">
@@ -46,9 +44,12 @@
             <img src="images/21b2b4349ca36.jpg" alt="Media Logos" class="full-img" width="860" height="100" loading="lazy" decoding="async">
         </section>
         
-        <!-- Assembly Video -->
-        <section class="sec-video-highlight">
-            <iframe loading="lazy" src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=0&mute=1&controls=1&modestbranding=1&playsinline=1&origin=https://shl.ltd" class="youtube-iframe" style="width: 100%; aspect-ratio: 1 / 1; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- Assembly Video (자체호스팅: 무음 자동재생+반복, 소리 켜기 버튼) -->
+        <section class="sec-video-highlight" style="position: relative;">
+            <video id="heroVideo" data-bg autoplay muted loop playsinline controls preload="none" poster="videos/assembly_poster.webp" width="720" height="720" style="width: 100%; aspect-ratio: 1 / 1; display: block; background: #000;">
+                <source data-src="videos/assembly.mp4" type="video/mp4">
+            </video>
+            <button id="heroUnmute" type="button" onclick="shlUnmute()" aria-label="소리 켜기" style="position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 30px; padding: 9px 16px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);">🔊 소리 켜기</button>
         </section>
         
         <!-- Certs -->
@@ -191,7 +192,9 @@
             </div>
             
             <div style="margin: 30px -20px 0;">
-                <iframe loading="lazy" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none;" src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=UZhwgSe4D-Q&playsinline=1&enablejsapi=1&vq=hd1080" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <video data-bg autoplay muted loop playsinline preload="none" width="720" height="900" style="width: 100%; height: auto; display: block; pointer-events: none; background: #111;">
+                    <source data-src="videos/sys01.mp4" type="video/mp4">
+                </video>
             </div>
             
             <div style="margin-top: 40px; padding-bottom: 20px;">
@@ -212,7 +215,9 @@
             </div>
             
             <div style="margin: 0 -20px;">
-                <iframe loading="lazy" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none;" src="https://www.youtube.com/embed/9MNvhVocdew?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=9MNvhVocdew&playsinline=1&enablejsapi=1&vq=hd1080" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <video data-bg autoplay muted loop playsinline preload="none" width="720" height="720" style="width: 100%; height: auto; display: block; pointer-events: none; background: #f8f9fa;">
+                    <source data-src="videos/sys02.mp4" type="video/mp4">
+                </video>
             </div>
         </section>
 
@@ -403,5 +408,46 @@
 
 
     </div>
+
+    <!-- Hero 영상 소리 켜기 -->
+    <script>
+      function shlUnmute() {
+        var v = document.getElementById('heroVideo');
+        var b = document.getElementById('heroUnmute');
+        if (!v) return;
+        v.muted = false; v.volume = 1;
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+        if (b) b.style.display = 'none';
+      }
+      (function () {
+        var v = document.getElementById('heroVideo');
+        var b = document.getElementById('heroUnmute');
+        if (v && b) v.addEventListener('volumechange', function () { if (!v.muted) b.style.display = 'none'; });
+      })();
+    </script>
+
+    <!-- 배경 영상 lazy 로더: 화면 근처(200px)에 들어올 때만 src 주입 후 자동재생 -->
+    <script>
+      (function () {
+        var vids = document.querySelectorAll('video[data-bg]');
+        function load(v) {
+          if (v.dataset.loaded) return;
+          v.dataset.loaded = '1';
+          var s = v.querySelector('source[data-src]');
+          if (s) { s.src = s.getAttribute('data-src'); v.load(); }
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        }
+        if (!('IntersectionObserver' in window)) {
+          for (var i = 0; i < vids.length; i++) load(vids[i]);
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { load(e.target); io.unobserve(e.target); }
+          });
+        }, { rootMargin: '200px' });
+        vids.forEach(function (v) { io.observe(v); });
+      })();
+    </script>
 </body>
 </html>
