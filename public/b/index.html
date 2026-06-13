@@ -10,7 +10,7 @@
     <meta name="description" content="1.2mm 카본 강재로 설계한 SHL 버디케인.">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
     <link rel="stylesheet" href="index.css">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 </head>
@@ -46,7 +46,7 @@
         
         <!-- Assembly Video (자체호스팅: 무음 자동재생+반복, 소리 켜기 버튼) -->
         <section class="sec-video-highlight" style="position: relative;">
-            <video id="heroVideo" data-bg autoplay muted loop playsinline controls preload="none" poster="videos/assembly_poster.webp" width="720" height="720" style="width: 100%; aspect-ratio: 1 / 1; display: block; background: #000;">
+            <video id="heroVideo" data-bg autoplay muted loop playsinline controls preload="none" poster="videos/assembly_poster.webp" width="720" height="720" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #000;">
                 <source data-src="videos/assembly.mp4" type="video/mp4">
             </video>
             <button id="heroUnmute" type="button" onclick="shlUnmute()" aria-label="소리 켜기" style="position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 30px; padding: 9px 16px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);">🔊 소리 켜기</button>
