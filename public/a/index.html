@@ -113,7 +113,12 @@
             <!-- fetchpriority="high"를 통해 가장 먼저 렌더링되게 함 -->
             <img src="/a/images/1._.webp" alt="표지" class="full-img" fetchpriority="high" width="860" height="2374">
             <!-- 1번 영상 (조립/사용 설명) -->
-            <iframe data-src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=0&mute=1&controls=1&modestbranding=1&playsinline=1&origin=https://shl.ltd" class="youtube-iframe" style="width: 100%; aspect-ratio: 1 / 1; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="860" height="860"></iframe>
+            <div style="position: relative; width: 100%; max-width: 100%;">
+                <video id="heroVideo" data-bg autoplay muted loop playsinline controls preload="none" poster="/b/videos/assembly_poster.webp" width="860" height="860" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #000;">
+                    <source data-src="/b/videos/assembly.mp4" type="video/mp4">
+                </video>
+                <button id="heroUnmute" type="button" onclick="shlUnmute()" aria-label="소리 켜기" style="position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 30px; padding: 9px 16px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);">🔊 소리 켜기</button>
+            </div>
             <img src="/a/images/2.webp" alt="2" class="full-img" fetchpriority="high" width="860" height="2858">
             
             <!-- 아래 이미지들은 loading="lazy" decoding="async"를 통해 로딩 속도 최적화 (뷰포트에 다가올 때 로드됨) -->
@@ -126,12 +131,18 @@
             <img src="/a/images/9.webp" alt="9" class="full-img" loading="lazy" decoding="async" width="860" height="4914">
             <img src="/a/images/10.webp" alt="10" class="full-img" loading="lazy" decoding="async" width="860" height="2464">
             <!-- 3번 영상 (360도 회전팁 시뮬레이션 무한반복) -->
-            <iframe data-src="https://www.youtube.com/embed/9MNvhVocdew?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=9MNvhVocdew&playsinline=1&enablejsapi=1&vq=hd1080" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="860" height="860"></iframe>
+            <video data-bg autoplay muted loop playsinline preload="none" width="860" height="860" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; pointer-events: none; background: #f8f9fa;">
+                <source data-src="/b/videos/sys02.mp4" type="video/mp4">
+            </video>
             <img src="/a/images/11.webp" alt="11" class="full-img" loading="lazy" decoding="async" width="860" height="2249">
             <img src="/a/images/12.webp" alt="12" class="full-img" loading="lazy" decoding="async" width="860" height="2890">
             <img src="/a/images/13.webp" alt="13" class="full-img" loading="lazy" decoding="async" width="860" height="2992">
             <!-- 2번 영상 (카본 120kg 지지 무한반복) -->
-            <iframe data-src="https://www.youtube.com/embed/UZhwgSe4D-Q?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=UZhwgSe4D-Q&playsinline=1&enablejsapi=1&vq=hd1080" style="width: 100%; aspect-ratio: 1 / 1; height: auto; pointer-events: none; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="860" height="860"></iframe>
+            <video data-bg autoplay muted loop playsinline preload="none" width="860" height="860" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; pointer-events: none; background: #111;">
+                <source data-src="/b/videos/sys01.mp4" type="video/mp4">
+            </video>
+            <!-- 추가 영상 (지팡이 길이 고정 안 될 때 해결법) -->
+            <iframe data-src="https://www.youtube.com/embed/bTRj1lQA9Wo" class="youtube-iframe" style="width: 100%; aspect-ratio: 16 / 9; border: none; display: block;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="860" height="484"></iframe>
             <img src="/a/images/14.webp" alt="14" class="full-img" loading="lazy" decoding="async" width="860" height="553">
             <!-- 지팡이 길이 고정 해결 영상 (자체호스팅: 무음 자동재생+반복, 컨트롤로 소리 켜기) -->
             <video data-bg autoplay muted loop playsinline controls preload="none" poster="/a/videos/cane-fix-poster.webp" width="1280" height="720" style="width: 100%; height: auto; display: block;">
@@ -156,5 +167,47 @@
     
     <!-- JS는 렌더링을 막지 않도록 defer 속성 사용 -->
     <script src="/a/script.js" defer></script>
+
+    <!-- Hero 영상 소리 켜기 -->
+    <script>
+      function shlUnmute() {
+        var v = document.getElementById('heroVideo');
+        var b = document.getElementById('heroUnmute');
+        if (!v) return;
+        v.muted = false; v.volume = 1;
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+        if (b) b.style.display = 'none';
+      }
+      (function () {
+        var v = document.getElementById('heroVideo');
+        var b = document.getElementById('heroUnmute');
+        if (v && b) v.addEventListener('volumechange', function () { if (!v.muted) b.style.display = 'none'; });
+      })();
+    </script>
+
+    <!-- 배경 영상 lazy 로더: 화면 근처(200px)에 들어올 때만 src 주입 후 자동재생 -->
+    <script>
+      (function () {
+        var vids = document.querySelectorAll('video[data-bg]');
+        function load(v) {
+          if (v.dataset.loaded) return;
+          v.dataset.loaded = '1';
+          var s = v.querySelector('source[data-src]');
+          if (s) { s.src = s.getAttribute('data-src'); v.load(); }
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        }
+        if (!('IntersectionObserver' in window)) {
+          for (var i = 0; i < vids.length; i++) load(vids[i]);
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { load(e.target); io.unobserve(e.target); }
+          });
+        }, { rootMargin: '200px' });
+        vids.forEach(function (v) { io.observe(v); });
+      })();
+    </script>
+
 </body>
 </html>
