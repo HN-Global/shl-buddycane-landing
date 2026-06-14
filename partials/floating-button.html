@@ -4,6 +4,7 @@
   ===========================================================
 -->
 <style>
+  /* 모바일 기본 디자인 (기존 유지) */
   #shlFloatingBar {
     position: fixed; 
     bottom: 0; 
@@ -12,15 +13,20 @@
     width: 100%; 
     max-width: 480px; 
     background: #fff; 
-    padding: 15px 20px; 
     box-shadow: 0 -4px 20px rgba(0,0,0,0.06); 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between;
     z-index: 1000; 
     box-sizing: border-box; 
     border-top: 1px solid #f0f0f0;
     transition: all 0.3s ease;
+  }
+
+  #shlFloatingBarInner {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 20px; 
+    box-sizing: border-box;
   }
   
   #shlFloatingBar .shl-info {
@@ -76,12 +82,64 @@
     transform: translateY(1px);
     box-shadow: 0 2px 10px rgba(142, 209, 212, 0.2);
   }
+
+  /* PC 버전 디자인 (shl.ltd 브랜드 사이트 디자인 반영) */
+  @media (min-width: 768px) {
+    #shlFloatingBar {
+      max-width: 100%;
+      background: rgba(25, 42, 72, 0.98); /* 브랜드 메인 컬러 네이비 (#192a48) 반투명 처리 */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: none;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    }
+
+    #shlFloatingBarInner {
+      max-width: 1200px; /* PC 환경에서 콘텐츠가 너무 퍼지지 않게 중앙 정렬 */
+      margin: 0 auto;
+      padding: 15px 40px;
+    }
+    
+    #shlFloatingBar .shl-info {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 15px;
+    }
+    
+    #shlFloatingBar .shl-info .shl-name { 
+      font-size: 18px; 
+      color: #a0aec0; /* 어두운 네이비 배경에 맞춘 밝은 톤 */
+      margin-bottom: 0;
+    }
+    
+    #shlFloatingBar .shl-info .shl-price { 
+      font-size: 28px; 
+      color: #ffffff; /* 가독성을 위한 화이트 텍스트 */
+    }
+
+    #shlBuyBtn {
+      background: #5fb2bc; /* 사이트 포인트 컬러 (청록색) */
+      box-shadow: none;
+      max-width: 240px;
+      padding: 16px 60px;
+      font-size: 18px;
+    }
+
+    #shlBuyBtn:hover {
+      background: #4a9da7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+  }
 </style>
 
 <div id="shlFloatingBar">
-  <div class="shl-info">
-    <div class="shl-name">SHL 버디케인</div>
-    <div class="shl-price">129,000원</div>
+  <!-- PC에서 중앙 정렬을 잡아주기 위한 이너 래퍼 추가 -->
+  <div id="shlFloatingBarInner">
+    <div class="shl-info">
+      <div class="shl-name">SHL 버디케인</div>
+      <div class="shl-price">129,000원</div>
+    </div>
+    <button id="shlBuyBtn" onclick="shlBuy()">구매하기</button>
   </div>
-  <button id="shlBuyBtn" onclick="shlBuy()">구매하기</button>
 </div>
