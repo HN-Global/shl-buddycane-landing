@@ -99,12 +99,6 @@
         <header class="main-header">
             <div class="header-inner">
                 <div class="logo">SHL</div>
-                <a href="https://shl.ltd/login" class="user-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#192a48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </a>
             </div>
         </header>
 
@@ -135,14 +129,21 @@
             <img src="/a/images/12.webp" alt="12" class="full-img" loading="lazy" decoding="async" width="860" height="2890">
             <img src="/a/images/13.webp" alt="13" class="full-img" loading="lazy" decoding="async" width="860" height="2992">
             <!-- 2번 영상 (카본 120kg 지지 무한반복) -->
-            <video data-bg autoplay muted loop playsinline preload="none" width="860" height="860" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; pointer-events: none; background: #111;">
+            <video data-bg autoplay muted loop playsinline preload="none" width="1080" height="1350" style="width: 100%; height: auto; aspect-ratio: 1080 / 1350; display: block; pointer-events: none; background: #111;">
                 <source data-src="/b/videos/sys01.mp4" type="video/mp4">
             </video>
             <img src="/a/images/14.webp" alt="14" class="full-img" loading="lazy" decoding="async" width="860" height="553">
-            <!-- 지팡이 길이 고정 해결 영상 (자체호스팅: 무음 자동재생+반복) -->
-            <video data-bg autoplay muted loop playsinline preload="none" poster="/a/videos/cane-fix-poster.webp" width="1280" height="720" style="width: 100%; height: auto; display: block;">
-                <source data-src="/a/videos/cane-fix.mp4" type="video/mp4">
-            </video>
+            <!-- 지팡이 길이 고정 해결 영상 (클릭 재생: 사용자가 직접 눌러서 시청) -->
+            <div class="cane-video" onclick="shlPlayCane(this)" role="button" tabindex="0" aria-label="지팡이 길이 고정 해결 영상 재생" style="position: relative; cursor: pointer; background: #000; display: block;">
+                <img src="/a/videos/cane-fix-poster.webp" alt="지팡이 길이 고정 해결 영상" width="1280" height="720" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;">
+                <div style="position: absolute; top: 16px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.72); color: #fff; padding: 9px 20px; border-radius: 30px; font-size: 15px; font-weight: 700; letter-spacing: -0.3px; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,0.35);">👆 눌러서 영상 보기</div>
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 76px; height: 76px; background: rgba(0,0,0,0.55); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.4);">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <video preload="none" playsinline controls width="1280" height="720" style="display: none; width: 100%; height: auto;">
+                    <source data-src="/a/videos/cane-fix.mp4" type="video/mp4">
+                </video>
+            </div>
             <img src="/a/images/15.detail6_.webp" alt="15" class="full-img" loading="lazy" decoding="async" width="860" height="1779">
             <img src="/a/images/16._detail7_.webp" alt="16" class="full-img" loading="lazy" decoding="async" width="860" height="1478">
             <img src="/a/images/17._detail8_.webp" alt="17" class="full-img" loading="lazy" decoding="async" width="860" height="1692">
@@ -155,6 +156,12 @@
             <img src="/a/images/24.webp" alt="24" class="full-img" loading="lazy" decoding="async" width="860" height="808">
         </main>
 
+        <!-- 하단 버튼 (전화문의 / 구매하기) — 플로팅 버튼과 동일한 shlBuy() 로직 -->
+        <div style="display: flex; gap: 10px; padding: 30px 20px 40px; max-width: 600px; margin: 0 auto;">
+            <a href="tel:010-5675-0954" style="flex: 1; display: inline-block; padding: 16px 0; border-radius: 6px; font-size: 16px; font-weight: 700; text-align: center; text-decoration: none; border: 1px solid #111; color: #111; background: #fff;">전화문의</a>
+            <button type="button" onclick="shlBuy()" style="flex: 1; padding: 16px 0; border-radius: 6px; font-size: 16px; font-weight: 700; text-align: center; border: none; cursor: pointer; background: #192a48; color: #fff; font-family: inherit;">구매하기</button>
+        </div>
+
         <!-- Floating Buy Button Area -->
         <!-- 서버나 프레임워크에서 partials/floating-button.html을 불러와서 삽입되는 영역입니다. -->
         <div id="floating-button-container"></div>
@@ -162,6 +169,28 @@
     
     <!-- JS는 렌더링을 막지 않도록 defer 속성 사용 -->
     <script src="/a/script.js" defer></script>
+
+    <!-- cane-fix 영상 클릭(수동) 재생 -->
+    <script>
+      function shlPlayCane(el) {
+        var v = el.querySelector('video');
+        if (!v || v.dataset.started) return;
+        v.dataset.started = '1';
+        var s = v.querySelector('source[data-src]');
+        if (s) { s.src = s.getAttribute('data-src'); v.load(); }
+        for (var i = 0; i < el.children.length; i++) {
+          if (el.children[i] !== v) el.children[i].style.display = 'none';
+        }
+        v.style.display = 'block';
+        var p = v.play(); if (p && p.catch) p.catch(function () {});
+      }
+      document.addEventListener('keydown', function (e) {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('cane-video')) {
+          e.preventDefault();
+          shlPlayCane(e.target);
+        }
+      });
+    </script>
 
     <!-- 배경 영상 lazy 로더: 화면 근처(200px)에 들어올 때만 src 주입 후 자동재생 -->
     <script>
