@@ -5,7 +5,8 @@
     <base href="/b/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preload" as="image" href="images/hero_1_1.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="images/hero_1_1.webp" media="(max-width: 1023px)" fetchpriority="high">
+    <link rel="preload" as="image" href="images/pc/hero_1_1.webp" media="(min-width: 1024px)" fetchpriority="high">
     <title>SHL 버디케인 | 원칙이 설계한 안전</title>
     <meta name="description" content="1.2mm 카본 강재로 설계한 SHL 버디케인.">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -31,20 +32,25 @@
         
         <!-- Hero -->
         <section class="sec-hero">
-            <img src="images/hero_1_1.webp" alt="Hero" class="full-img" width="780" height="1261" fetchpriority="high" decoding="async">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="images/pc/hero_1_1.webp">
+                <img src="images/hero_1_1.webp" alt="Hero" class="full-img" width="780" height="1261" fetchpriority="high" decoding="async">
+            </picture>
         </section>
 
         <!-- Cert Title Image (Media) -->
         <section class="sec-img-only">
-            <img src="images/21b2b4349ca36.jpg" alt="Media Logos" class="full-img" width="860" height="100" loading="lazy" decoding="async">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="images/pc/21b2b4349ca36.webp">
+                <img src="images/21b2b4349ca36.jpg" alt="Media Logos" class="full-img" width="860" height="100" loading="lazy" decoding="async">
+            </picture>
         </section>
         
-        <!-- Assembly Video (자체호스팅: 무음 자동재생+반복, 소리 켜기 버튼) -->
-        <section class="sec-video-highlight" style="position: relative;">
-            <video id="heroVideo" data-bg autoplay muted loop playsinline controls preload="none" poster="videos/assembly_poster.webp" width="720" height="720" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #000;">
+        <!-- Assembly Video (자체호스팅: 무음 자동재생+반복) -->
+        <section class="sec-video-highlight">
+            <video data-bg autoplay muted loop playsinline preload="none" poster="videos/assembly_poster.webp" width="720" height="720" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #000;">
                 <source data-src="videos/assembly.mp4" type="video/mp4">
             </video>
-            <button id="heroUnmute" type="button" onclick="shlUnmute()" aria-label="소리 켜기" style="position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 30px; padding: 9px 16px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);">🔊 소리 켜기</button>
         </section>
         
         <!-- Certs -->
@@ -74,7 +80,10 @@
         
         <!-- Review Image -->
         <section class="sec-review-img">
-            <img src="images/review.webp" alt="Review" class="full-img" style="width: 100%; display: block;" width="863" height="1236" loading="lazy" decoding="async">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="images/pc/review.webp">
+                <img src="images/review.webp" alt="Review" class="full-img" style="width: 100%; display: block;" width="863" height="1236" loading="lazy" decoding="async">
+            </picture>
         </section>
 
 
@@ -163,7 +172,10 @@
 
         <!-- Media Image -->
         <section class="sec-media-img sec-img-only">
-            <img src="images/media.webp" alt="Media" class="full-img" width="860" height="964" loading="lazy" decoding="async">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="images/pc/media.webp">
+                <img src="images/media.webp" alt="Media" class="full-img" width="860" height="964" loading="lazy" decoding="async">
+            </picture>
         </section>
 
         <!-- New System 01 Detailed Design (Black Theme) -->
@@ -177,7 +189,10 @@
             <p style="font-size: 14px; color: #ddd; margin-bottom: 30px; letter-spacing: -0.5px;">가볍고, 무너지지 않습니다.</p>
             
             <div style="margin: 0 -20px;">
-                <img src="images/ba5ef29fdbcd4.jpg" alt="Carbon Texture" style="width: 100%; display: block;" width="860" height="514" loading="lazy" decoding="async">
+                <picture>
+                    <source media="(min-width: 1024px)" srcset="images/pc/ba5ef29fdbcd4.webp">
+                    <img src="images/ba5ef29fdbcd4.jpg" alt="Carbon Texture" style="width: 100%; display: block;" width="860" height="514" loading="lazy" decoding="async">
+                </picture>
             </div>
             
             <div style="margin-top: 30px; padding-bottom: 10px;">
@@ -223,7 +238,10 @@
         </section>
 
         <section style="background-color: #fff; padding: 20px 20px 40px 20px;">
-            <img src="images/fd55cc7446045.jpg" alt="360 Rotation Tip Comparison" style="width: 100%; display: block;" width="750" height="750" loading="lazy" decoding="async">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="images/pc/fd55cc7446045.webp">
+                <img src="images/fd55cc7446045.jpg" alt="360 Rotation Tip Comparison" style="width: 100%; display: block;" width="750" height="750" loading="lazy" decoding="async">
+            </picture>
 
             <div style="display: flex; gap: 10px; margin-top: 10px; padding: 0 10px;">
                 <div style="flex: 1; background-color: #5fb2bc; color: #fff; padding: 8px 0; border-radius: 20px; text-align: center; font-size: 14px; font-weight: 600; letter-spacing: -0.5px;">안정 밀착</div>
@@ -257,7 +275,10 @@
             <p style="font-size: 15px; color: #ddd; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 5px; font-weight: 500;">손잡이 곡률부터 야간 시인성까지.</p>
             <p style="font-size: 15px; color: #ddd; line-height: 1.6; letter-spacing: -0.5px; margin-bottom: 30px; font-weight: 500;">사람이 닿는 모든 접점에 설계 원칙이 있습니다.</p>
             <div style="margin: 0 -20px;">
-                <img src="images/49c7718150b68.jpg" alt="Grip" style="width: 100%; display: block;" width="750" height="750" loading="lazy" decoding="async">
+                <picture>
+                    <source media="(min-width: 1024px)" srcset="images/pc/49c7718150b68.webp">
+                    <img src="images/49c7718150b68.jpg" alt="Grip" style="width: 100%; display: block;" width="750" height="750" loading="lazy" decoding="async">
+                </picture>
             </div>
 
             <div style="padding: 30px 0 10px;">
@@ -336,7 +357,10 @@
                 <p style="color: #65b1b9; font-size: 13px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px;">COMPLETE SET</p>
                 <h3 style="font-size: 24px; font-weight: 800; line-height: 1.4; color: #111; letter-spacing: -1px;">버디케인 본품부터 교체용<br>싱글팁까지 함께 제공됩니다.</h3>
             </div>
-            <img src="images/059b5ae211b41.jpg" alt="Complete Set" class="full-img" style="width: 100%; display: block; mix-blend-mode: multiply;" width="750" height="1185" loading="lazy" decoding="async">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="images/pc/059b5ae211b41.webp">
+                <img src="images/059b5ae211b41.jpg" alt="Complete Set" class="full-img" style="width: 100%; display: block; mix-blend-mode: multiply;" width="750" height="1185" loading="lazy" decoding="async">
+            </picture>
         </section>
 
         <!-- Specs & Insurance -->
@@ -385,7 +409,10 @@
                 </div>
             </div>
 
-            <img src="images/insurance.webp" alt="Insurance" class="full-img" style="border-radius: 8px; margin-bottom: 30px;" width="860" height="1259" loading="lazy" decoding="async">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="images/pc/insurance.webp">
+                <img src="images/insurance.webp" alt="Insurance" class="full-img" style="border-radius: 8px; margin-bottom: 30px;" width="860" height="1259" loading="lazy" decoding="async">
+            </picture>
         </section>
 
         <!-- CTA -->
@@ -393,7 +420,10 @@
             <h3>잘 만든 것에는 이유가 있습니다.</h3>
             <p class="desc mb-20">SHL 버디케인</p>
             <h2 style="color: #111; font-size: 28px; font-weight: 800; margin-bottom: 20px;">129,000원</h2>
-            <img src="images/8635670d903cb.jpg" alt="Product" class="full-img mb-20" style="border-radius: 8px;" width="750" height="888" loading="lazy" decoding="async">
+            <picture>
+                <source media="(min-width: 1024px)" srcset="images/pc/8635670d903cb.webp">
+                <img src="images/8635670d903cb.jpg" alt="Product" class="full-img mb-20" style="border-radius: 8px;" width="750" height="888" loading="lazy" decoding="async">
+            </picture>
             
             <div class="btn-group flex-center" style="gap: 10px;">
                 <a href="tel:010-5675-0954" class="btn btn-outline">전화문의</a>
@@ -403,23 +433,6 @@
 
 
     </div>
-
-    <!-- Hero 영상 소리 켜기 -->
-    <script>
-      function shlUnmute() {
-        var v = document.getElementById('heroVideo');
-        var b = document.getElementById('heroUnmute');
-        if (!v) return;
-        v.muted = false; v.volume = 1;
-        var p = v.play(); if (p && p.catch) p.catch(function () {});
-        if (b) b.style.display = 'none';
-      }
-      (function () {
-        var v = document.getElementById('heroVideo');
-        var b = document.getElementById('heroUnmute');
-        if (v && b) v.addEventListener('volumechange', function () { if (!v.muted) b.style.display = 'none'; });
-      })();
-    </script>
 
     <!-- 배경 영상 lazy 로더: 화면 근처(200px)에 들어올 때만 src 주입 후 자동재생 -->
     <script>
