@@ -76,7 +76,7 @@
             margin: 0;
             padding: 0;
         }
-        main.ab-content img, main.ab-content iframe {
+        main.ab-content img, main.ab-content iframe, main.ab-content video, main.ab-content .cane-video {
             width: 100%;
             max-width: 100%;
             display: block;
@@ -107,8 +107,8 @@
             <!-- fetchpriority="high"를 통해 가장 먼저 렌더링되게 함 -->
             <img src="/a/images/1._.webp" alt="표지" class="full-img" fetchpriority="high" width="860" height="2374">
             <!-- 1번 영상 (조립/사용 설명) -->
-            <video data-bg autoplay muted loop playsinline preload="none" poster="/b/videos/assembly_poster.webp" width="860" height="860" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #000;">
-                <source data-src="/b/videos/assembly.mp4" type="video/mp4">
+            <video controls playsinline preload="none" poster="/b/videos/assembly_poster.webp" width="860" height="860" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #000;">
+                <source src="/b/videos/assembly.mp4" type="video/mp4">
             </video>
             <img src="/a/images/2.webp" alt="2" class="full-img" fetchpriority="high" width="860" height="2858">
             
@@ -121,16 +121,16 @@
             <img src="/a/images/8.webp" alt="8" class="full-img" loading="lazy" decoding="async" width="860" height="3454">
             <img src="/a/images/9.webp" alt="9" class="full-img" loading="lazy" decoding="async" width="860" height="4914">
             <img src="/a/images/10.webp" alt="10" class="full-img" loading="lazy" decoding="async" width="860" height="2464">
-            <!-- 3번 영상 (360도 회전팁 시뮬레이션 무한반복) -->
-            <video data-bg autoplay muted loop playsinline preload="none" width="860" height="860" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; pointer-events: none; background: #f8f9fa;">
-                <source data-src="/b/videos/sys02.mp4" type="video/mp4">
+            <!-- 3번 영상 (360도 회전팁 시뮬레이션, 수동재생) -->
+            <video controls playsinline preload="none" poster="/b/videos/sys02-poster.webp" width="860" height="860" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #f8f9fa;">
+                <source src="/b/videos/sys02.mp4" type="video/mp4">
             </video>
             <img src="/a/images/11.webp" alt="11" class="full-img" loading="lazy" decoding="async" width="860" height="2249">
             <img src="/a/images/12.webp" alt="12" class="full-img" loading="lazy" decoding="async" width="860" height="2890">
             <img src="/a/images/13.webp" alt="13" class="full-img" loading="lazy" decoding="async" width="860" height="2992">
-            <!-- 2번 영상 (카본 120kg 지지 무한반복) -->
-            <video data-bg autoplay muted loop playsinline preload="none" width="1080" height="1350" style="width: 100%; height: auto; aspect-ratio: 1080 / 1350; display: block; pointer-events: none; background: #111;">
-                <source data-src="/b/videos/sys01.mp4" type="video/mp4">
+            <!-- 2번 영상 (카본 120kg 지지, 수동재생) -->
+            <video controls playsinline preload="none" poster="/b/videos/sys01-poster.webp" width="1080" height="1350" style="width: 100%; height: auto; aspect-ratio: 1080 / 1350; display: block; background: #111;">
+                <source src="/b/videos/sys01.mp4" type="video/mp4">
             </video>
             <img src="/a/images/14.webp" alt="14" class="full-img" loading="lazy" decoding="async" width="860" height="553">
             <!-- 지팡이 길이 고정 해결 영상 (클릭 재생: 사용자가 직접 눌러서 시청) -->
