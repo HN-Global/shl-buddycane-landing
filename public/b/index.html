@@ -49,7 +49,7 @@
         <!-- Assembly Video (자체호스팅: 무음 자동재생+반복) -->
         <section class="sec-video-highlight">
             <video data-bg autoplay muted loop playsinline preload="none" poster="videos/assembly_poster.webp" width="720" height="720" style="width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; background: #000;">
-                <source data-src="videos/assembly.mp4" type="video/mp4">
+                <source data-src="videos/assembly.mp4" data-src-pc="videos/pc/assembly.mp4" type="video/mp4">
             </video>
         </section>
         
@@ -203,7 +203,7 @@
             
             <div style="margin: 30px -20px 0;">
                 <video data-bg autoplay muted loop playsinline preload="none" width="720" height="900" style="width: 100%; height: auto; display: block; pointer-events: none; background: #111;">
-                    <source data-src="videos/sys01.mp4" type="video/mp4">
+                    <source data-src="videos/sys01.mp4" data-src-pc="videos/pc/sys01.mp4" type="video/mp4">
                 </video>
             </div>
             
@@ -226,7 +226,7 @@
             
             <div style="margin: 0 -20px;">
                 <video data-bg autoplay muted loop playsinline preload="none" width="720" height="720" style="width: 100%; height: auto; display: block; pointer-events: none; background: #f8f9fa;">
-                    <source data-src="videos/sys02.mp4" type="video/mp4">
+                    <source data-src="videos/sys02.mp4" data-src-pc="videos/pc/sys02.mp4" type="video/mp4">
                 </video>
             </div>
         </section>
@@ -442,7 +442,11 @@
           if (v.dataset.loaded) return;
           v.dataset.loaded = '1';
           var s = v.querySelector('source[data-src]');
-          if (s) { s.src = s.getAttribute('data-src'); v.load(); }
+          if (s) {
+            var pc = window.matchMedia('(min-width: 1024px)').matches;
+            s.src = (pc && s.getAttribute('data-src-pc')) ? s.getAttribute('data-src-pc') : s.getAttribute('data-src');
+            v.load();
+          }
           var p = v.play(); if (p && p.catch) p.catch(function () {});
         }
         if (!('IntersectionObserver' in window)) {
