@@ -19,7 +19,7 @@ const path = require('path');
 
 // ----- 설정값 -----
 const GA_ID = 'G-VMNDG3DTXX';
-const META_PIXEL_ID = '1606841370427807';
+const META_PIXEL_ID = '1332464972178312';
 const PROD = { idx: '3', name: 'buddycane', price: 129000, currency: 'KRW' };
 
 // 파일 경로: 이 파일은 /api 안 -> 루트는 한 단계 위.
