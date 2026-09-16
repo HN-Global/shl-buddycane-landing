@@ -1,22 +1,15 @@
 {
-  "version": 2,
-  "functions": {
-    "api/render.js": { "includeFiles": "{public,partials}/**" },
-    "api/index.js": { "includeFiles": "{public,partials}/**" },
-    "api/a.js": { "includeFiles": "{public,partials}/**" },
-    "api/b.js": { "includeFiles": "{public,partials}/**" }
-  },
-  "routes": [
-    { "src": "/api/order", "dest": "/api/order.js" },
-
-    { "src": "/a/(images|videos)/(.+)", "dest": "/a/$1/$2", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
-    { "src": "/b/(images|videos)/(.+)", "dest": "/b/$1/$2", "headers": { "cache-control": "public, max-age=31536000, immutable" } },
-
-    { "src": "/a/(.+)", "dest": "/a/$1" },
-    { "src": "/b/(.+)", "dest": "/b/$1" },
-
-    { "src": "/a/?$", "dest": "/api/a.js" },
-    { "src": "/b/?$", "dest": "/api/b.js" },
-    { "src": "/?$", "dest": "/api/index.js" }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://start.shl.ltd/canes/buddycane/",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://start.shl.ltd/canes/buddycane/",
+      "permanent": false
+    }
   ]
 }
