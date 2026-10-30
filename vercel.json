@@ -4,12 +4,12 @@
     {
       "source": "/",
       "destination": "https://start.shl.ltd/canes/buddycane/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/:path*",
       "destination": "https://start.shl.ltd/canes/buddycane/",
-      "permanent": false
+      "permanent": true
     }
   ]
 }
